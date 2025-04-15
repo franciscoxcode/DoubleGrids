@@ -10,12 +10,43 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            HorizontalGrid()
+            VerticalGrid()
         }
-        .padding()
+    }
+}
+
+struct HorizontalGrid: View {
+    let rows = [
+        GridItem(), 
+        GridItem()
+    ]
+    
+    let emoji = ["heart.fill", "house.fill", "car.fill", "airplane", "bicycle", "bus.fill"]
+    
+    var body: some View {
+        LazyHGrid(rows: rows, spacing: 0){
+            ForEach(emoji, id: \.self){ emoji in
+                Image(systemName: emoji)
+            }
+        }
+    }
+}
+
+struct VerticalGrid: View {
+    let columns = [
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
+    
+    let emoji = ["flame.fill", "bolt.fill", "cloud.fill", "star.fill", "moon.fill", "sun.max.fill"]
+    
+    var body: some View {
+        LazyVGrid(columns: columns){
+            ForEach(emoji, id: \.self){ emoji in
+                Image(systemName: emoji)
+            }
+        }
     }
 }
 
