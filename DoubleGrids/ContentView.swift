@@ -30,6 +30,7 @@ struct HorizontalGrid: View {
                 Image(systemName: emoji)
             }
         }
+        .frame(height: 100 )
     }
 }
 
@@ -47,6 +48,7 @@ struct VerticalGrid: View {
                 Image(systemName: emoji)
             }
         }
+        .frame(width: 100)
     }
 }
 
